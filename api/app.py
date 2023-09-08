@@ -7,7 +7,7 @@ import os
 
 
 if not os.path.exists('model'):
-    model = AutoModelWithLMHead.from_pretrained('aanosov/tb_001')
+    model = AutoModelWithLMHead.from_pretrained('aanosov/tb_004')
     model.save_pretrained('model')
 else:
     model = AutoModelWithLMHead.from_pretrained('model')
@@ -24,7 +24,7 @@ app = FastAPI()
 
 @app.post("/tinkoffbot_api")
 async def form_post(input_text: str = Body(..., embed=True)) -> dict:
-    inputs = tokenizer(f'@@ПЕРВЫЙ@@ {input_text} @@ВТОРОЙ@@', return_tensors='pt')
+    inputs = tokenizer(f'{input_text}', return_tensors='pt')
     generated_token_ids = model.generate(
         **inputs,
         top_k=10,
