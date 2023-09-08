@@ -1,10 +1,10 @@
 import telebot
 from telebot import types
 import requests
-from config import API_URL
+from config import API_URL, BOT_TOKEN
 from utils import *
 
-bot = telebot.TeleBot('6422363145:AAGa-fvbt21c_-CdH3OeL4Rrbv57YZmn5jU')
+bot = telebot.TeleBot(BOT_TOKEN)
 chat_history = {}
 
 @bot.message_handler(commands=['start'])
