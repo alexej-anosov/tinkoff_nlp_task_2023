@@ -7,7 +7,7 @@ import os
 
 
 if not os.path.exists('model'):
-    model = AutoModelWithLMHead.from_pretrained('aanosov/tb_004')
+    model = AutoModelWithLMHead.from_pretrained('aanosov/tb_010')
     model.save_pretrained('model')
 else:
     model = AutoModelWithLMHead.from_pretrained('model')
