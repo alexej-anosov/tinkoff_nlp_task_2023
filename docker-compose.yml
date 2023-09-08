@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  telegram_bot:
+    build: telegram_bot/
+    volumes:
+      - ./telegram_bot:/app
+
+  app:
+    build: api
+    ports:
+      - 8000:8000
+    volumes:
+      - ./api:/app
